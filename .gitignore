@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+debug_*.html
+page*.html
+.vscode/
+.idea/
