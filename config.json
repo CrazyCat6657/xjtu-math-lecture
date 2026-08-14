@@ -1,29 +1,21 @@
 {
-  "sites": [
-    {
-      "name": "西安交通大学数学与统计学院",
-      "list_url": "https://math.xjtu.edu.cn/index/xsdt1.htm",
-      "base_url": "https://math.xjtu.edu.cn",
-      "enabled": true,
-      "list": {
-        "item_selector": "li",
-        "date_selector": "span",
-        "date_regex": "(\\d{4}[-/]\\d{1,2}[-/]\\d{1,2})",
-        "link_keywords": ["info", "xsdt"],
-        "title_keywords": [],
-        "title_min_length": 5,
-        "max_items": 15
-      },
-      "detail": {
-        "speaker_labels": ["报告人", "主讲人", "嘉宾"],
-        "time_labels": ["时间", "讲座时间", "报告时间"],
-        "location_labels": ["地点", "举办地点", "报告地点"]
-      },
-      "challenge": {
-        "enabled": true,
-        "verify_url": "https://math.xjtu.edu.cn/dynamic_challenge"
-      }
-    }
-  ],
-  "max_push_once": 5
+  "name": "西安交通大学数学与统计学院",
+  "list_url": "https://math.xjtu.edu.cn/index/xsdt1.htm",
+  "base_url": "https://math.xjtu.edu.cn",
+  "verify_url": "https://math.xjtu.edu.cn/dynamic_challenge",
+  "max_items": 15,
+  "max_push_once": 5,
+  "list": {
+    "item_selector": "li",
+    "date_selector": "span",
+    "date_regex": "(\\d{4}[-/]\\d{1,2}[-/]\\d{1,2})",
+    "link_keywords": ["info", "xsdt"],
+    "title_keywords": [],
+    "title_min_length": 5
+  },
+  "detail": {
+    "speaker_labels": ["报告人", "主讲人", "嘉宾", "演讲者"],
+    "time_labels": ["时间", "讲座时间", "报告时间", "日期"],
+    "location_labels": ["地点", "举办地点", "报告地点", "地址", "会场"]
+  }
 }
