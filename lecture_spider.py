@@ -105,10 +105,16 @@ def load_history():
 
 def save_history(history):
     try:
-        # 按日期倒序排列（日期在 "标题|日期" 的 | 之后，YYYY-MM-DD 可直接字符串排序）
-        ordered = sorted(history, key=lambda x: x.rsplit("|", 1)[-1], reverse=True)
+        # 先按标题排序，再按日期倒序稳定排序——同日期条目按标题排列，
+        # 顺序与 set 迭代无关，保证每次输出确定、不产生无意义 diff
+        ordered = sorted(
+            sorted(history),
+            key=lambda x: x.rsplit("|", 1)[-1],
+            reverse=True,
+        )
         with open(HISTORY_FILE, "w", encoding="utf-8") as f:
             json.dump(ordered[:HISTORY_KEEP], f, ensure_ascii=False, indent=2)
+            f.write("\n")
     except Exception as e:
         log(f"保存历史失败: {e}")
 
@@ -128,6 +134,7 @@ def save_health(health):
     try:
         with open(HEALTH_FILE, "w", encoding="utf-8") as f:
             json.dump(health, f, ensure_ascii=False, indent=2)
+            f.write("\n")
     except Exception as e:
         log(f"保存健康状态失败: {e}")
 
